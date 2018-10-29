@@ -93,5 +93,8 @@
   <ItemGroup>
     <None Include="Resources\welcome-screen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_red_diff.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

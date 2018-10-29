@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,31 @@ namespace Welcome
     {
         private Dictionary<string, Person> personMap;
 
+        public static Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
+        }
+
         public void updateFrom(String indexNo)
         {
             if (personMap.ContainsKey(indexNo))
@@ -21,8 +48,36 @@ namespace Welcome
                 Person person = personMap[indexNo];
                 lblName.Text = person.name;
                 lblTeam.Text = person.team;
+                Image profilePic = null;
+                try
+                {
+                    profilePic = Image.FromFile($"C:\\Users\\HeshanPadmasiri\\Pictures\\Night\\{person.indexNo}.jpg");
+                    profilePic = ResizeImage(profilePic, 3105, 4655);
+                } catch(Exception ex)
+                {
+                    MessageBox.Show("Image load filed:" + ex.ToString());
+                }
+                
+                Image frame = Properties.Resources.bg_red;
+                using (frame)
+                {
+                    using(var bitmap = new Bitmap(frame.Width, frame.Height))
+                    {
+                        using(var canvas = Graphics.FromImage(bitmap))
+                        {
+                            canvas.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                            canvas.DrawImage(profilePic, new Point(((bitmap.Width / 2) - (profilePic.Width / 2)), ((bitmap.Height / 2) - (profilePic.Height / 2))));
+                            canvas.DrawImage(frame, new Point(0, 0));
+                            canvas.Save();
+                        }
+                        bitmap.Save($"C:\\Users\\HeshanPadmasiri\\Pictures\\Night\\{person.indexNo}_out.jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
+                        Image newBg = Image.FromFile($"C:\\Users\\HeshanPadmasiri\\Pictures\\Night\\{person.indexNo}_out.jpg");
+                        this.BackgroundImage = newBg;
+                    }
+                    
+                }
+                
             }
-            this.BackgroundImage = Properties.Resources.bg_red;
         }
 
         public void showPopup()
