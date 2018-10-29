@@ -8,6 +8,7 @@ namespace Welcome
 {
     static class Program
     {
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,5 +19,6 @@ namespace Welcome
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+       
     }
 }

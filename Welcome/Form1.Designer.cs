@@ -28,13 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblTeam = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblName
+            // 
+            this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Evil of Frankenstein", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(250, 225);
+            this.lblName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(316, 89);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTeam
+            // 
+            this.lblTeam.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTeam.BackColor = System.Drawing.Color.Transparent;
+            this.lblTeam.Font = new System.Drawing.Font("Evil of Frankenstein", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeam.Location = new System.Drawing.Point(250, 324);
+            this.lblTeam.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTeam.Name = "lblTeam";
+            this.lblTeam.Size = new System.Drawing.Size(316, 89);
+            this.lblTeam.TabIndex = 1;
+            this.lblTeam.Text = "Name";
+            this.lblTeam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ControlBox = false;
+            this.Controls.Add(this.lblTeam);
+            this.Controls.Add(this.lblName);
+            this.DoubleBuffered = true;
+            this.Name = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblTeam;
     }
 }
 
