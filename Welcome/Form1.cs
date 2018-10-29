@@ -41,14 +41,35 @@ namespace Welcome
             return destImage;
         }
 
+        public void playAnimation(String indexNo)
+        {
+            // todo: based on team pick the image
+            if (personMap.ContainsKey(indexNo))
+            {
+                string team = personMap[indexNo].team;
+                
+            }
+            
+        }
+
         public void updateFrom(String indexNo)
         {
+                        
             if (personMap.ContainsKey(indexNo))
             {
                 Person person = personMap[indexNo];
                 lblName.Text = person.name;
                 lblTeam.Text = person.team;
                 Image profilePic = null;
+
+                //todo: based on the group pick image  
+                pctBox.Image = Properties.Resources.anm_im;
+                pctBox.Visible = true;
+                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+                timer.Interval = 300;
+                timer.Tick += (source, e) => { pctBox.Visible = false; timer.Stop(); };
+                timer.Start();
+                Image frame = Properties.Resources.bg_red;
                 try
                 {
                     profilePic = Image.FromFile($"C:\\Users\\HeshanPadmasiri\\Pictures\\Night\\{person.indexNo}.jpg");
@@ -58,7 +79,7 @@ namespace Welcome
                     MessageBox.Show("Image load filed:" + ex.ToString());
                 }
                 
-                Image frame = Properties.Resources.bg_red;
+                
                 using (frame)
                 {
                     using(var bitmap = new Bitmap(frame.Width, frame.Height))
@@ -88,7 +109,7 @@ namespace Welcome
         public Form1()
         {
             InitializeComponent();
-
+            
             buildMap();
         }
 

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblName = new System.Windows.Forms.Label();
             this.lblTeam = new System.Windows.Forms.Label();
+            this.pctBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -61,6 +63,21 @@
             this.lblTeam.Text = "Name";
             this.lblTeam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pctBox
+            // 
+            this.pctBox.BackColor = System.Drawing.Color.Transparent;
+            this.pctBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctBox.Image = global::Welcome.Properties.Resources.anm_im;
+            this.pctBox.InitialImage = global::Welcome.Properties.Resources.anm_im;
+            this.pctBox.Location = new System.Drawing.Point(-5, -6);
+            this.pctBox.Name = "pctBox";
+            this.pctBox.Size = new System.Drawing.Size(1632, 932);
+            this.pctBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctBox.TabIndex = 2;
+            this.pctBox.TabStop = false;
+            this.pctBox.Visible = false;
+            this.pctBox.WaitOnLoad = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -69,11 +86,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.pctBox);
             this.Controls.Add(this.lblTeam);
             this.Controls.Add(this.lblName);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.pctBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -82,6 +101,7 @@
 
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTeam;
+        private System.Windows.Forms.PictureBox pctBox;
     }
 }
 

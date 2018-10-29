@@ -63,6 +63,16 @@ namespace Welcome.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anm_im {
+            get {
+                object obj = ResourceManager.GetObject("anm_im", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bg_red {
             get {
                 object obj = ResourceManager.GetObject("bg_red", resourceCulture);

@@ -22,7 +22,8 @@ namespace Welcome
 
         private void btnSubmit_Click(object sender,System.EventArgs args)
         {
-            baseForm.updateFrom("160451M");
+            baseForm.playAnimation(txtIndex.Text);
+            baseForm.updateFrom(txtIndex.Text);
         }
     }
 }

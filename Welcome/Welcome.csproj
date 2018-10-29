@@ -96,5 +96,8 @@
   <ItemGroup>
     <None Include="Resources\bg_red_diff.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anm_im.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
